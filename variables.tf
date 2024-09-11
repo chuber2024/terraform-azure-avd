@@ -4,6 +4,6 @@ variable "azsubscription_id" {}
 variable "azclient_secret" {}
 
 variable "environment" {
-    type = string
+  type    = string
   default = "Pilot"
 }
