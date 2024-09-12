@@ -3,7 +3,7 @@ terraform {
   backend "remote" {
     organization = "CMHL"
     workspaces {
-      name = "terraform-azure-${var.gitenv}"
+      name = "terraform-azure-avd"
     }
   }
   required_providers {
@@ -26,6 +26,11 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg-pilot" {
   name     = "rg-${var.env}-net-01"
   location = var.region
+
+  tags = {
+    Environment = var.environment
+    Provisioned = "terraform-azure-${var.gitenv}"
+  }
 }
 
 resource "azurerm_virtual_network" "vnet" {
