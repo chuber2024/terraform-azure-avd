@@ -37,19 +37,17 @@ resource "azurerm_virtual_network" "vnet" {
   name                = "${var.env}-vnet-01"
   location            = azurerm_resource_group.rg-pilot.location
   resource_group_name = azurerm_resource_group.rg-pilot.name
-  address_space       = ["10.100.0.0/16"]
-
-  subnet {
-    name             = "${var.env}-snet-avd-01"
-    address_prefixes = ["10.100.1.0/24"]
-  }
-
-  subnet {
-    name             = "${var.env}-snet-adds-01"
-    address_prefixes = ["10.100.2.0/24"]
-  }
+  address_space       = [var.vnet_ipas]
 
   tags = {
     environment = var.environment
   }
+}
+
+resource "azurerm_subnet" "vprsubnet" {
+  for_each             = var.private_subnets
+  name                 = each.key
+  resource_group_name  = azurerm_resource_group.rg-pilot.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.100.${each.value}.0/24"]
 }
