@@ -17,9 +17,9 @@ variable "vnet_ipas" {
 
 variable "private_subnets" {
   default = {
-    "private_subnet_1" = 1
-    "private_subnet_2" = 2
-    "private_subnet_3" = 3
+    "-snet-avd-01" = 1
+    "-snet-adds-01" = 2
+    "-snet-apps-01" = 3
   }
 }
 
