@@ -13,9 +13,7 @@ variable "vnet_ipas" {
   type = string
 }
 
-variable "private_subnets" {
-  type = set(string)
-}
+variable "private_subnets" {}
 
 variable "az-rg" {
   type = list(string)
