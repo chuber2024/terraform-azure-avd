@@ -48,5 +48,5 @@ resource "azurerm_private_endpoint" "storfslaccpe" {
 resource "azurerm_storage_share" "addusrprofile" {
   name                 = var.sharename
   storage_account_name = azurerm_storage_account.storfslacc.name
-  quota                = 50
+  quota                = 100
 }
