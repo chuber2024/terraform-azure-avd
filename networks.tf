@@ -22,19 +22,7 @@ resource "azurerm_subnet" "vprsubnet" {
   depends_on = [ azurerm_virtual_network.vnet ]
 }
 
-#Create NiC and Public IP for AD VM
-resource "azurerm_public_ip" "pubipadvm" {
-  name                = var.pub-ip-advm
-  resource_group_name = "rg-${var.env}-${var.az-rg[2]}"
-  location            = var.region
-  allocation_method   = "Static"
-
-  tags = {
-    Environment = var.environment
-    Provisioned = "terraform-azure-${var.gitenv}"
-    Workload    = var.az-rg[2]
-  }
-}
+#Create NiC for AD VM
 resource "azurerm_network_interface" "nicadvm" {
   name                = var.nic-advm-name
   location            = var.region
@@ -44,8 +32,7 @@ resource "azurerm_network_interface" "nicadvm" {
     name                          = var.ip-nic-advm-name
     subnet_id                     = azurerm_subnet.vprsubnet["plt-snet-adds"].id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pubipadvm.id
   }
-  depends_on = [ azurerm_public_ip.pubipadvm ]
+  depends_on = [azurerm_subnet.vprsubnet]
 }
 
