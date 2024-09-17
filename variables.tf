@@ -37,3 +37,11 @@ variable "az-rg" {
 variable "sa-name" {
   type = string
 }
+
+variable "sa-fsl-name" {
+  type = string
+}
+
+variable "sa-fsl-ep-name" {
+  type = string
+}
