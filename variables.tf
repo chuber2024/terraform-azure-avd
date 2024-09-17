@@ -7,19 +7,18 @@ variable "env" {}
 variable "gitenv" {}
 
 variable "region" {
-  default = "West Europe"
+  type = string
 }
 
 variable "vnet_ipas" {
-  type    = string
-  default = "10.100.0.0/16"
+  type = string
 }
 
 variable "private_subnets" {
   default = {
-    "-snet-avd-01" = 1
-    "-snet-adds-01" = 2
-    "-snet-apps-01" = 3
+    "-snet-avd"  = 1
+    "-snet-adds" = 2
+    "-snet-apps" = 3
   }
 }
 
@@ -29,4 +28,9 @@ variable "public_subnets" {
     "public_subnet_2" = 2
     "public_subnet_3" = 3
   }
+}
+
+variable "az-rg" {
+  type    = list(string)
+  default = ["Shared", "AVD", "ADDS", "SECMON", "NET"]
 }
