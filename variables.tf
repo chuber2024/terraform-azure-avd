@@ -31,6 +31,5 @@ variable "public_subnets" {
 }
 
 variable "az-rg" {
-  type    = list(string)
-  default = ["Shared", "AVD", "ADDS", "SECMON", "NET"]
+  type = list(string)
 }
