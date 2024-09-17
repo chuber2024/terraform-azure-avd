@@ -12,14 +12,14 @@ resource "azurerm_storage_account" "storacc" {
   }
 }
 
-/* resource "azurerm_storage_account" "storfslacc" {
+resource "azurerm_storage_account" "storfslacc" {
   name                     = var.sa-fsl-name
   resource_group_name      = "rg-${var.env}-${var.az-rg[1]}"
   location                 = var.region
   account_tier             = "Premium"
-  account_kind = "FileStorage"
+  account_kind             = "FileStorage"
   account_replication_type = "LRS"
- 
+
   tags = {
     Environment = var.environment
     Provisioned = "terraform-azure-${var.gitenv}"
@@ -32,7 +32,7 @@ resource "azurerm_private_endpoint" "storfslaccpe" {
   name                = var.sa-fsl-ep-name
   location            = var.region
   resource_group_name = "rg-${var.env}-${var.az-rg[1]}"
-  subnet_id           = azurerm_subnet.vprsubnet["${var.env}-snet-avd"].id
+  subnet_id           = azurerm_subnet.vprsubnet["plt-snet-avd"].id
 
   private_service_connection {
     name                           = "privatelink.file.core.windows.net"
@@ -40,4 +40,4 @@ resource "azurerm_private_endpoint" "storfslaccpe" {
     subresource_names              = ["file"]
     is_manual_connection           = false
   }
-} */
+}

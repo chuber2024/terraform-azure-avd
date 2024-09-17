@@ -14,7 +14,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 resource "azurerm_subnet" "vprsubnet" {
   for_each             = var.private_subnets
-  name                 = "${each.key}"
+  name                 = each.key
   resource_group_name  = "rg-${var.env}-${var.az-rg[4]}"
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.100.${each.value}.0/24"]
