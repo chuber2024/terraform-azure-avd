@@ -6,7 +6,7 @@ sa-fsl-name     = "gensaavdfslgx001"
 sa-fsl-ep-name  = "gensaavdfslgx001-ep01"
 env             = "plt"
 private_subnets = {
-  "${var.env}-snet-avd" = 1
-  "${var.env}-snet-adds" = 2
-  "${var.env}-snet-apps" = 3
+  "plt-snet-avd" = 1
+  "plt-snet-adds" = 2
+  "plt-snet-apps" = 3
 }
