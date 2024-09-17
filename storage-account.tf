@@ -11,6 +11,7 @@ resource "azurerm_storage_account" "storacc" {
     Provisioned = "terraform-azure-${var.gitenv}"
     Workload    = var.az-rg[0]
   }
+  depends_on = [ azurerm_resource_group.addrg ]
 }
 
 #Premium Storage Account with Fileshare for FSlogis
@@ -27,6 +28,7 @@ resource "azurerm_storage_account" "storfslacc" {
     Provisioned = "terraform-azure-${var.gitenv}"
     Workload    = var.az-rg[1]
   }
+  depends_on = [ azurerm_resource_group.addrg ]
 }
 
 #Private Endpoint for FSLogics Storage
@@ -42,6 +44,7 @@ resource "azurerm_private_endpoint" "storfslaccpe" {
     subresource_names              = ["file"]
     is_manual_connection           = false
   }
+  depends_on = [ azurerm_subnet.vprsubnet ]
 }
 
 #Create userprofile fileshare
@@ -49,4 +52,5 @@ resource "azurerm_storage_share" "addusrprofile" {
   name                 = var.sharename
   storage_account_name = azurerm_storage_account.storfslacc.name
   quota                = 100
+  depends_on = [ azurerm_storage_account.storfslacc ]
 }

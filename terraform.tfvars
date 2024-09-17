@@ -10,4 +10,7 @@ private_subnets = {
   "plt-snet-adds" = 2
   "plt-snet-apps" = 3
 }
-sharename = "userprofiles"
+sharename        = "userprofiles"
+nic-advm-name    = "nic-advm-01"
+ip-nic-advm-name = "ip-nic-advm-01"
+pub-ip-advm      = "pub-ip-advm-01"

@@ -4,6 +4,8 @@ variable "azsubscription_id" {}
 variable "azclient_secret" {}
 variable "environment" {}
 variable "gitenv" {}
+variable "azadminuser" {}
+variable "azadminpw" {}
 variable "sharename" {}
 variable "region" {}
 variable "vnet_ipas" {}
@@ -13,3 +15,6 @@ variable "sa-name" {}
 variable "sa-fsl-name" {}
 variable "sa-fsl-ep-name" {}
 variable "env" {}
+variable "nic-advm-name" {}
+variable "ip-nic-advm-name" {}
+variable "pub-ip-advm" {}
