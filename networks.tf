@@ -6,7 +6,9 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = [var.vnet_ipas]
 
   tags = {
-    environment = var.environment
+    Environment = var.environment
+    Provisioned = "terraform-azure-${var.gitenv}"
+    Workload    = var.az-rg[4]
   }
 }
 

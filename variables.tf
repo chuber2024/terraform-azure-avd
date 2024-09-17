@@ -33,3 +33,7 @@ variable "public_subnets" {
 variable "az-rg" {
   type = list(string)
 }
+
+variable "sa-name" {
+  type = string
+}
