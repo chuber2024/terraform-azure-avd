@@ -1,3 +1,4 @@
+#Blog Storage Account for Diagnostigs
 resource "azurerm_storage_account" "storacc" {
   name                     = var.sa-name
   resource_group_name      = "rg-${var.env}-${var.az-rg[0]}"
@@ -11,7 +12,8 @@ resource "azurerm_storage_account" "storacc" {
     Workload    = var.az-rg[0]
   }
 }
-
+/* 
+#Premium Storage Account with Fileshare for FSlogis
 resource "azurerm_storage_account" "storfslacc" {
   name                     = var.sa-fsl-name
   resource_group_name      = "rg-${var.env}-${var.az-rg[1]}"
@@ -41,3 +43,4 @@ resource "azurerm_private_endpoint" "storfslaccpe" {
     is_manual_connection           = false
   }
 }
+ */
