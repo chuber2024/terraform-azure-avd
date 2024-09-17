@@ -4,32 +4,12 @@ variable "azsubscription_id" {}
 variable "azclient_secret" {}
 variable "environment" {}
 variable "gitenv" {}
-
-variable "region" {
-  type = string
-}
-
-variable "vnet_ipas" {
-  type = string
-}
-
+variable "sharename" {}
+variable "region" {}
+variable "vnet_ipas" {}
 variable "private_subnets" {}
-
-variable "az-rg" {
-  type = list(string)
-}
-
-variable "sa-name" {
-  type = string
-}
-
-variable "sa-fsl-name" {
-  type = string
-}
-
-variable "sa-fsl-ep-name" {
-  type = string
-}
-variable "env" {
-  type = string
-}
+variable "az-rg" {}
+variable "sa-name" {}
+variable "sa-fsl-name" {}
+variable "sa-fsl-ep-name" {}
+variable "env" {}

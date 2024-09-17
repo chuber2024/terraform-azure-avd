@@ -10,3 +10,4 @@ private_subnets = {
   "plt-snet-adds" = 2
   "plt-snet-apps" = 3
 }
+sharename = "userprofiles"
