@@ -21,5 +21,5 @@ resource "azurerm_windows_virtual_machine" "addc01" {
     sku       = "2019-Datacenter"
     version   = "latest"
   }
-  depends_on = [ azurerm_network_interface.nicadvm ]
+  depends_on = [azurerm_network_interface.nicadvm]
 }
