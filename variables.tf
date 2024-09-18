@@ -9,7 +9,9 @@ variable "azadminpw" {}
 variable "sharename" {}
 variable "region" {}
 variable "vnet_ipas" {}
+variable "vnet_sec" {}
 variable "private_subnets" {}
+variable "bastion_subnet" {}
 variable "az-rg" {}
 variable "sa-name" {}
 variable "sa-fsl-name" {}
@@ -17,4 +19,3 @@ variable "sa-fsl-ep-name" {}
 variable "env" {}
 variable "nic-advm-name" {}
 variable "ip-nic-advm-name" {}
-variable "pub-ip-advm" {}
